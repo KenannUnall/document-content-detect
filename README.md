@@ -1,48 +1,48 @@
 # Document Content Detect
 
-Bu proje, görsellerdeki belge içeriklerini tespit etmek için YOLO tabanlı bir nesne algılama modeli kullanır. Proje, birden fazla belge görseli üzerinde toplu olarak çalışabilir ve tespit edilen sonuçları hem ekrana yazdırır hem de çıktı görsellerini kaydeder.
+This project uses a YOLO-based object detection model to detect document content in images. It can process multiple document images in batch and outputs both the detection results to the screen and saves the result images.
 
-## Özellikler
+## Features
 
-- YOLO modeli ile belge içeriği tespiti
-- Birden fazla görselde toplu (batch) işleme
-- Sonuçların görselleştirilmesi ve kaydedilmesi
+- Document content detection with YOLO model
+- Batch processing of multiple images
+- Visualization and saving of results
 
-## Gereksinimler
+## Requirements
 
 - Python 3.8+
 - [Ultralytics YOLO](https://docs.ultralytics.com/)
-- Gerekli ek kütüphaneler: `pip install ultralytics`
+- Required packages: `pip install ultralytics`
 
-## Kullanım
+## Usage
 
-1. **Model Ağırlıklarını Ekleyin:**  
-   `weights/best.pt` dosyasını projenizin `weights` klasörüne yerleştirin. Model ağırlık dosyasına [buradan](https://huggingface.co/Kenan-Unal/document-content-detect) erişebilirsiniz.
+1. **Add Model Weights:**  
+   Place the `weights/best.pt` file in the `weights` folder of your project. You can download the model weights from [here](https://huggingface.co/Kenan-Unal/document-content-detect).
 
-2. **Görselleri Ekleyin:**  
-   Tespit yapmak istediğiniz görselleri `docs` klasörüne ekleyin ve `docs_path` listesine dosya adlarını ekleyin.
+2. **Add Images:**  
+   Add the images you want to process to the `docs` folder and list their filenames in the `docs_path` list in the script.
 
-3. **Çalıştırın:**  
-   Terminalde aşağıdaki komutu kullanarak scripti çalıştırın:
+3. **Run the Script:**  
+   Execute the following command in your terminal:
    ```bash
    python document-detection.py
    ```
 
-4. **Sonuçlar:**  
-   - Tespit edilen kutular ve sınıflar terminalde görüntülenir.
-   - Sonuç görselleri `result` klasörüne kaydedilir.
+4. **Results:**  
+   - Detected boxes and classes will be printed in the terminal.
+   - Result images will be saved in the `result` folder.
 
-## Dosya Açıklamaları
+## File Descriptions
 
-- `document-detection.py`: Ana tespit scripti.
-- `weights/best.pt`: Eğitilmiş YOLO model ağırlıkları.
-- `docs/`: Test edilecek görsellerin bulunduğu klasör.
-- `result/`: Sonuç görsellerinin kaydedileceği klasör.
+- `document-detection.py`: Main detection script.
+- `weights/best.pt`: Trained YOLO model weights.
+- `docs/`: Folder containing the images to be tested.
+- `result/`: Folder where the result images will be saved.
 
-## Katkı
+## Contribution
 
-Katkıda bulunmak isterseniz, lütfen bir fork oluşturup pull request gönderin.
+If you would like to contribute, please fork the repository and submit a pull request.
 
-## Lisans
+## License
 
-Bu proje MIT lisansı ile lisanslanmıştır. 
+This project is licensed under the MIT License. 
