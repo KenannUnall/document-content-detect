@@ -1,11 +1,18 @@
 from PIL import Image
+import os
 
-# Görseli yükle
-image = Image.open("docs/yurt-disi-egitim-13246672013.jpg")
+def increase_resolution(input_path, output_path, scale=2, dpi=(300, 300)):
+    if not os.path.exists(input_path):
+        print(f"Girdi dosyası bulunamadı: {input_path}")
+        return
 
-# 2 kat çözünürlük artır
-new_size = (image.width * 2, image.height * 2)
-high_res_image = image.resize(new_size, Image.LANCZOS)
+    image = Image.open(input_path)
+    new_size = (image.width * scale, image.height * scale)
+    high_res_image = image.resize(new_size, Image.LANCZOS)
+    high_res_image.save(output_path, dpi=dpi)
+    print(f"Yüksek çözünürlüklü görsel kaydedildi: {output_path} (DPI: {dpi})")
 
-# Yeni görüntüyü 300 DPI ile kaydet
-high_res_image.save("docs/high_res_image.jpg", dpi=(400, 400))
+if __name__ == "__main__":
+    input_file = "docs/yurt-disi-egitim-13246672013.jpg"
+    output_file = "docs/high_res_image.jpg"
+    increase_resolution(input_file, output_file, scale=2, dpi=(400, 400))
